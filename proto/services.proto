@@ -1,0 +1,38 @@
+/**
+ * jonathan.lareau@gmail.com
+ *
+ * To (re)generate proto :
+ *
+ * https://grpc.io/docs/quickstart/python/
+ *
+ * pip install grpcio
+ *
+ * py -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. services.proto
+ *
+ **/
+
+syntax = "proto3";
+
+package pb;
+
+message SayHiRequest {
+    string requestMsg = 1;
+}
+
+message SayHelloResponse {
+    string responseMsg = 1;
+}
+
+message SayByeResponse {
+    string responseMsg = 1;
+}
+
+service SayHelloService {
+    rpc Compute (SayHiRequest) returns (SayHelloResponse) {
+    }
+}
+
+service SayByeService {
+    rpc Compute (SayHiRequest) returns (SayByeResponse) {
+    }
+}

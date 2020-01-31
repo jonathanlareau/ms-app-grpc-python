@@ -1,10 +1,10 @@
 # Microservices application with Java, Rest and Spring Boot
-The purpose of this project is to demonstrate the use of **Spring Boot** and Http Rest service to create a simple Microservices application.
+The purpose of this project is to demonstrate the use **Python** and GRPC to create a simple Microservices application.
 # Flow
 ```mermaid
 graph LR
 A[Angular] -- HTTP --> B[Rest Api Service] 
-B -- HTTP--> C[Rest Api Service]
+B -- GRPC--> C[Rest Api Service]
 ```
 # Run
 You can run this application in three way:
@@ -17,8 +17,8 @@ You can run this application in three way:
 127.0.0.1 sayhello-service
 ## Individual start
 ### Steps
-- In the folder server : gradle bootRun
-- In the folder client : gradle bootRun
+- In the folder server : py server.py
+- In the folder client : py client.py
 - In the folder angular : ng serve --open
 ### Test
 After open the browser to: http://localhost:4200/sayhello
@@ -37,12 +37,12 @@ After open the browser to: http://192.168.99.100:4200/sayhello
 ### Test
 After open the browser to: http://localhost:4200/sayhello
 # Build Docker
-- docker build -t jonathanlareau/spring-boot-java-grpc-client --build-arg JAR_FILE=./build/libs/client-0.0.1-SNAPSHOT.war .
-- docker build -t jonathanlareau/spring-boot-java-grpc-server --build-arg JAR_FILE=./build/libs/server-0.0.1-SNAPSHOT.jar .
+- docker build -t jonathanlareau/spring-boot-py-grpc-client --build-arg JAR_FILE=./build/libs/client-0.0.1-SNAPSHOT.war .
+- docker build -t jonathanlareau/spring-boot-py-grpc-server --build-arg JAR_FILE=./build/libs/server-0.0.1-SNAPSHOT.jar .
 - docker build -t jonathanlareau/simple-angular-hello .
 - docker login
-- docker push jonathanlareau/spring-boot-java-grpc-client
-- docker push jonathanlareau/spring-boot-java-grpc-server
+- docker push jonathanlareau/spring-boot-py-grpc-client
+- docker push jonathanlareau/spring-boot-py-grpc-server
 - docker push jonathanlareau/simple-angular-hello
 # ToDo
 - Setup a Nginx Ingress
